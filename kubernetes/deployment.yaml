@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apiapp-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apiapp
+  template:
+    metadata:
+      labels:
+        app: apiapp
+    spec:
+      containers:
+      - name: apiapp
+        image: apiacraks.azurecr.io/apiapp:v1
+        ports:
+        - containerPort: 5000
+
